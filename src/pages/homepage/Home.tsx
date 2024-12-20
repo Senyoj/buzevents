@@ -1,75 +1,12 @@
 import PageLayout from "../../components/Layout/PageLayout";
 import SearchBar from "../../components/SearchBar";
-import CategoryCard from "./components/CategoryCard";
+import { categories } from "../categories/categories-data";
+import CategoryCard from "../categories/components/CategoryCard";
 
-interface Category {
-  id: string;
-  title: string;
-  image: string;
-  count?: number;
-  description?: string;
-}
+
 
 const Home = () => {
-  const categories: Category[] = [
-    {
-      id: "1",
-      title: "Music",
-      image: "/card.png",
-      count: 156,
-      description: "Live performances, concerts, and musical events",
-    },
-    {
-      id: "2",
-      title: "NightLife",
-      image: "/card1.png",
-      count: 89,
-      description: "Sports events, tournaments, and fitness activities",
-    },
-    {
-      id: "3",
-      title: "Performing & Visual Arts",
-      image: "/card2.png",
-      count: 204,
-      description: "Food festivals, culinary events, and dining experiences",
-    },
-    {
-      id: "4",
-      title: "Holidays",
-      image: "/card3.png",
-      count: 127,
-      description: "Art exhibitions, theatre shows, and cultural events",
-    },
-    {
-      id: "5",
-      title: "Dating",
-      image: "/card4.png",
-      count: 95,
-      description: "Tech conferences, workshops, and meetups",
-    },
-    {
-      id: "6",
-      title: "Hobbies",
-      image: "/card5.png",
-      count: 167,
-      description: "Business conferences, networking events, and seminars",
-    },
-    {
-      id: "7",
-      title: "Business",
-      image: "/card6.png",
-      count: 167,
-      description: "Business conferences, networking events, and seminars",
-    },
-    {
-      id: "8",
-      title: "Food & Drink",
-      image: "/card7.png",
-      count: 167,
-      description: "Business conferences, networking events, and seminars",
-    },
-  ];
-
+  
   return (
     <PageLayout>
       {/* Hero Section */}

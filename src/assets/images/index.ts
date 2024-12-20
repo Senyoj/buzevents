@@ -1,3 +1,4 @@
+import loginimg from "./loginimg.png";
 import BuzEvents from "./BuzEvents.svg";
 
-export { BuzEvents };
+export { loginimg, BuzEvents };

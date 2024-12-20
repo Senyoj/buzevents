@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Button } from "antd";
+import { Button, Dropdown, Space } from "antd";
+import type { MenuProps } from "antd";
 import { FaBars, FaChevronDown, FaChevronRight } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +23,28 @@ const Navbar = () => {
     { href: "/create-events", label: "Create Events" },
   ];
 
+  // Dropdown menu items configuration
+  const items: MenuProps["items"] = eventLinks.map((link, index) => ({
+    key: index.toString(),
+    label: (
+      <a
+        href={link.href}
+        className="text-base px-4 py-2 block hover:bg-gray-50"
+      >
+        {link.label}
+      </a>
+    ),
+  }));
+
+  const dropdownMenu = {
+    items,
+    className: "w-48",
+  };
+
   return (
     <div className="relative">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b w-full flex justify-center items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6  z-50 absolute top-0 w-full bg-primary border-b">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white w-full flex justify-center items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 z-50 absolute top-0 w-full bg-primary border-b lg:border-none">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -38,50 +58,46 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
-                  className=" transition-colors duration-200"
+                  to={link.href}
+                  className="transition-all duration-300 transform hover:scale-105"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
 
               {/* Events Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={toggleEvents}
-                  className="flex items-center space-x-1  transition-colors duration-200"
+              <Dropdown
+                menu={dropdownMenu}
+                placement="bottomLeft"
+                trigger={["hover"]}
+                className="hover:text-gray-600"
+              >
+                <a
+                  onClick={(e) => e.preventDefault()}
+                  className="cursor-pointer"
                 >
-                  <span>Events</span>
-                  <FaChevronDown className="h-4 w-4" />
-                </button>
-
-                {isEventsOpen && (
-                  <div className="absolute top-full right-0 mt-2 w-48 bg-primary rounded-md shadow-lg py-1">
-                    {eventLinks.map((link) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-md"
-                      >
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
+                  <Space>
+                    Events
+                    <FaChevronDown
+                      size={10}
+                      className="transition-transform duration-200"
+                    />
+                  </Space>
+                </a>
+              </Dropdown>
             </nav>
 
             {/* Auth Buttons */}
-            <div className="hidden lg:flex items-center space-x-4 top-0">
-              <Button variant="solid">
-                <a href="/login" className="text-lg font-s">
+            <div className="hidden lg:flex items-center space-x-4">
+              <Button className="px-5 py-5">
+                <Link to="/login" className="text-lg font-semibold">
                   Login
-                </a>
+                </Link>
               </Button>
-              <Button variant="solid">
-                <a href="/sign-up" className="text-lg font-s">
+              <Button color="default" variant="solid" className="px-5 py-5">
+                <a href="/sign-up" className="text-lg font-semibold">
                   Sign Up
                 </a>
               </Button>
@@ -90,7 +106,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="lg:hidden p-2 rounded-md  hover:bg-gray-100"
+              className="lg:hidden p-2 rounded-md hover:bg-gray-100"
             >
               {isOpen ? (
                 <FaX className="h-6 w-6" />
@@ -104,19 +120,19 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="lg:hidden min-h-screen z-50 bg-textColor text-primary absolute top-16 w-full">
-            <div className="px-4 pt-2 pb-3 space-y-5 bg-white ">
+            <div className="px-4 pt-2 pb-3 space-y-5">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md text-md"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
 
               {/* Mobile Events Accordion */}
-              <div className="">
+              <div>
                 <button
                   onClick={toggleEvents}
                   className="flex items-center justify-between w-full px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
@@ -130,31 +146,31 @@ const Navbar = () => {
                 </button>
 
                 {isEventsOpen && (
-                  <div className="ml-4 space-y-1">
+                  <div className="ml-4 mt-2 space-y-1">
                     {eventLinks.map((link) => (
-                      <a
+                      <Link
                         key={link.href}
-                        href={link.href}
+                        to={link.href}
                         className="block px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-md"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
               </div>
 
               {/* Mobile Auth Buttons */}
-              <div className="space-y-5 mt-20">
-                <Button variant="solid" className="w-full py-5 ">
-                  <a href="/login" className="text-lg font-semibold">
+              <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-md p-4 space-y-3">
+                <Button block className="h-12">
+                  <Link to="/login" className="text-lg font-semibold">
                     Login
-                  </a>
+                  </Link>
                 </Button>
-                <Button variant="solid" className="w-full py-5 ">
-                  <a href="/sign-up" className="text-lg font-semibold">
+                <Button block className="h-12">
+                  <Link to="/sign-up" className="text-lg font-semibold">
                     Sign Up
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>

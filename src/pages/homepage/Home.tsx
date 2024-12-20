@@ -103,16 +103,13 @@ const Home = () => {
                        text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
                        font-bold text-center lg:text-start leading-tight"
             >
-              Explore Our <span className="block sm:inline">Categories</span>
+              Explore Our <span className=" sm:inline">Categories</span>
             </h1>
           </div>
 
           {/* Cards Grid Section */}
           <div className="w-full lg:w-2/3">
-            <div
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 
-                           gap-4 sm:gap-6 md:gap-8 lg:gap-10 justify-items-center"
-            >
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  gap-4 sm:gap-6 md:gap-8 lg:gap-10 justify-items-center">
               {categories.map((category) => (
                 <div key={category.id} className="w-full">
                   <CategoryCard {...category} />

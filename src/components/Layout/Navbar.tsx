@@ -28,7 +28,11 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <img src="/logo.png" alt="BuzEvents" className="h-8 w-auto" />
+              <img
+                src="/BuzEvents.svg"
+                alt="BuzEvents"
+                className="h-5 w-auto"
+              />
             </div>
 
             {/* Desktop Navigation */}
@@ -71,11 +75,15 @@ const Navbar = () => {
 
             {/* Auth Buttons */}
             <div className="hidden lg:flex items-center space-x-4 top-0">
-              <Button color="primary" variant="solid">
-                <a href="/login">Login</a>
+              <Button variant="solid">
+                <a href="/login" className="text-lg font-s">
+                  Login
+                </a>
               </Button>
-              <Button color="primary" variant="solid">
-                <a href="/sign-up">Sign Up</a>
+              <Button variant="solid">
+                <a href="/sign-up" className="text-lg font-s">
+                  Sign Up
+                </a>
               </Button>
             </div>
 
@@ -95,8 +103,8 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden z-50 bg-textColor text-primary absolute top-16 w-full">
-            <div className="px-4 pt-2 pb-3 space-y-1 bg-white border-t">
+          <div className="lg:hidden min-h-screen z-50 bg-textColor text-primary absolute top-16 w-full">
+            <div className="px-4 pt-2 pb-3 space-y-5 bg-white ">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -108,12 +116,12 @@ const Navbar = () => {
               ))}
 
               {/* Mobile Events Accordion */}
-              <div className="border-t border-gray-200 mt-2 pt-2">
+              <div className="">
                 <button
                   onClick={toggleEvents}
                   className="flex items-center justify-between w-full px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
                 >
-                  <span>Events</span>
+                  <p>Events</p>
                   <FaChevronRight
                     className={`h-4 w-4 transform transition-transform duration-200 ${
                       isEventsOpen ? "rotate-90" : ""
@@ -137,12 +145,16 @@ const Navbar = () => {
               </div>
 
               {/* Mobile Auth Buttons */}
-              <div className="space-y-2 mt-10">
-                <Button color="primary" variant="solid" className="w-full">
-                  <a href="/login">Login</a>
+              <div className="space-y-5 mt-20">
+                <Button variant="solid" className="w-full py-5 ">
+                  <a href="/login" className="text-lg font-semibold">
+                    Login
+                  </a>
                 </Button>
-                <Button color="primary" variant="solid" className="w-full">
-                  <a href="/sign-up">Sign Up</a>
+                <Button variant="solid" className="w-full py-5 ">
+                  <a href="/sign-up" className="text-lg font-semibold">
+                    Sign Up
+                  </a>
                 </Button>
               </div>
             </div>

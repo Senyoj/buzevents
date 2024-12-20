@@ -48,11 +48,13 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <img
-                src="/BuzEvents.svg"
-                alt="BuzEvents"
-                className="h-5 w-auto"
-              />
+              <Link to="/">
+                <img
+                  src="/BuzEvents.svg"
+                  alt="BuzEvents"
+                  className="h-5 w-auto"
+                />
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -97,7 +99,7 @@ const Navbar = () => {
                 </Link>
               </Button>
               <Button color="default" variant="solid" className="px-5 py-5">
-                <a href="/sign-up" className="text-lg font-semibold">
+                <a href="/register" className="text-lg font-semibold">
                   Sign Up
                 </a>
               </Button>
@@ -168,7 +170,7 @@ const Navbar = () => {
                   </Link>
                 </Button>
                 <Button block className="h-12">
-                  <Link to="/sign-up" className="text-lg font-semibold">
+                  <Link to="/register" className="text-lg font-semibold">
                     Sign Up
                   </Link>
                 </Button>

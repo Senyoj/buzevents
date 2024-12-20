@@ -11,11 +11,11 @@ const SearchBar = () => {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4">
-      <div className="border rounded-full flex flex-col md:flex-row">
+    <div className="w-full max-w-4xl ">
+      <div className="border border-border rounded-full flex flex-col md:flex-row bg-primary">
         {/* Search Input Section */}
         <div className="flex items-center flex-1 p-2">
-          <FaSearch className="mx-2 text-gray-400" />
+          <FaSearch className="mx-2 text-iconColor" />
           <Input
             placeholder="Search events"
             bordered={false}
@@ -25,7 +25,7 @@ const SearchBar = () => {
 
         {/* Location Select Section */}
         <div className="md:flex items-center flex-1 border-t md:border-t-0 md:border-l p-2 hidden">
-          <FaLocationDot className="mx-2 text-gray-400" />
+          <FaLocationDot className="mx-2 text-iconColor" />
           <Select
             placeholder="Select location"
             options={locations}

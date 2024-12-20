@@ -6,6 +6,7 @@ import { Input } from "antd";
 import ThirdpartyBtns from "./components/ThirdpartyBtns";
 import { FaApple, FaEnvelope, FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -23,9 +24,7 @@ const Login = () => {
       <div className="w-full lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col">
         {/* Form Section */}
         <div className="flex-grow flex flex-col justify-center max-w-lg mx-auto w-full">
-          <h1 className=" mb-6 md:mb-8 text-center py-10 text-textColor">
-            Log in
-          </h1>
+          <h1 className=" mb-6 md:mb-8 text-center py-10 ">Log in</h1>
 
           <form
             onSubmit={handleSubmit}
@@ -72,7 +71,9 @@ const Login = () => {
             </div>
             <div className="flex justify-center items-center pt-10">
               Don't have an account?
-              <span>Sign Up</span>
+              <span>
+                <Link to="/register">Sign Up</Link>
+              </span>
             </div>
           </form>
         </div>

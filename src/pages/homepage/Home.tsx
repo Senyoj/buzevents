@@ -1,19 +1,19 @@
+import { Carousel } from "antd";
+import { eventsData } from "../../../data/eventsData";
+import EventCard from "../../components/EventCards";
 import PageLayout from "../../components/Layout/PageLayout";
 import SearchBar from "../../components/SearchBar";
 import { categories } from "../categories/categories-data";
 import CategoryCard from "../categories/components/CategoryCard";
 
-
-
 const Home = () => {
-  
   return (
     <PageLayout>
       {/* Hero Section */}
       <div className="text-center p-6 md:p-10 lg:mx-44">
-        <div className="min-h-[600px] flex justify-center items-center">
+        <div className="min-h-screen md:min-h-[600px] flex justify-center items-center">
           <div>
-            <h1 className="font-bold font-bricolage-grotesque-primary text-center text-4xl md:text-5xl lg:text-6xl text-textColor">
+            <h1 className="font-bold text-center text-4xl md:text-5xl lg:text-6xl text-textColor">
               Discover <span className=""> Amazing Events </span> <br />
               Near You
             </h1>
@@ -53,6 +53,33 @@ const Home = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <h1></h1>
+          <h1
+            className="font-bricolage-grotesque-primary text-textColor 
+                       text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+                       font-bold lg:text-start leading-tight py-10 w-full lg:w-1/"
+          >
+            Buy <span className=" sm:inline">tickets </span>with
+            <span className=" sm:inline"> Ease</span>
+          </h1>
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <Carousel className=" col-span-4">
+              {eventsData.map((event) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  // onLike={handleLike}
+                  // onBookmark={handleBookmark}
+                  // onBuyTicket={handleBuyTicket}
+                />
+              ))}
+            </Carousel>
           </div>
         </div>
       </section>

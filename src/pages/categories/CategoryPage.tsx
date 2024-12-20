@@ -1,4 +1,3 @@
-// src/pages/categories/CategoryPage.tsx
 import { Link, useParams } from "react-router-dom";
 import PageLayout from "../../components/Layout/PageLayout";
 import { categories } from "./categories-data";

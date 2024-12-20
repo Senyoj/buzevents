@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import typography from "@tailwindcss/typography";
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -7,10 +9,11 @@ export default {
       montserrat: ['"Montserrat"', "sans-serif"],
     },
     colors: {
-      primary: "#ffffff", 
+      primary: "#ffffff",
       secondary: "#F05537",
-      textColor:"#1E0A3C" 
+      textColor: "#1E0A3C",
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 };
+F

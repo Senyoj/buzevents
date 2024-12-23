@@ -3,19 +3,7 @@ import { Carousel } from "antd";
 import type { CarouselRef } from "antd/es/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import EventCard from "../../../components/EventCards";
-
-
-interface Event {
-  id: string;
-  title: string;
-  date: Date;
-  location: string;
-  isOnline: boolean;
-  price?: number;
-  imageUrl?: string;
-  category?: string;
-  description?: string;
-}
+import type { Event } from "../../../../data/eventsData";
 
 interface CarouselSectionProps {
   filteredEvents: Event[];

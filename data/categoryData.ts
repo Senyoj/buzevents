@@ -7,7 +7,6 @@ export interface Category {
   description?: string;
 }
 
-
 export const categories: Category[] = [
   {
     id: "1",

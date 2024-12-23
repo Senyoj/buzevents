@@ -23,7 +23,6 @@ const Navbar = () => {
     { href: "/create-events", label: "Create Events" },
   ];
 
-  // Dropdown menu items configuration
   const items: MenuProps["items"] = eventLinks.map((link, index) => ({
     key: index.toString(),
     label: (
@@ -43,9 +42,9 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white w-full flex justify-center items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 z-50 absolute top-0 w-full bg-primary border-b lg:border-none">
-          <div className="flex justify-between items-center h-16">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white w-full">
+        <div className="w-full px-4 sm:px-6 z-50 absolute top-0 bg-primary border-b border-border lg:border-none">
+          <div className="flex justify-between items-center h-16 w-full">
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link to="/">

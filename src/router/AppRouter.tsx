@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../pages/homepage/Home";
 import ProtectedRoute from "./ProtectedRoute";
 import Index from "../pages/Dashboard/Index";
-import Events from "../pages/events/Events";
 import CategoryPage from "../pages/categories/CategoryPage";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
@@ -26,14 +25,7 @@ const AppRouter = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/dashboard/events"
-          element={
-            <ProtectedRoute>
-              <Events />
-            </ProtectedRoute>
-          }
-        />
+
         <Route
           path="/categories/:id"
           element={

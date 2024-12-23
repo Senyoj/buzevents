@@ -4,6 +4,7 @@ import type { CarouselRef } from "antd/es/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import EventCard from "../../../components/EventCards";
 
+
 interface Event {
   id: string;
   title: string;

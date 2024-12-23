@@ -6,6 +6,8 @@ import { Pagination, Tag } from "antd";
 import CarouselSection from "./components/CarouselSection";
 import SearchFilter from "../../components/SearchFilter";
 import SearchPage from "./components/SearchPage";
+import CategoryCard from "../categories/components/CategoryCard";
+import { categories } from "../categories/categories-data";
 
 const interests = [
   "Comedy",
@@ -69,6 +71,31 @@ const Home = () => {
       </div>
 
       {/* Categories Section */}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mt-12 sm:mt-16 lg:mt-20 flex flex-col lg:flex-row gap-8 lg:gap-12">
+          {/* Title Section */}
+          <div className="w-full lg:w-1/3 flex items-start">
+            <h1
+              className="font-bricolage-grotesque-primary text-textColor 
+                       text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+                       font-bold text-center lg:text-start leading-tight"
+            >
+              Explore Our <span className="block sm:inline">Categories</span>
+            </h1>
+          </div>
+
+          {/* Cards Grid Section */}
+          <div className="w-full lg:w-2/3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  gap-4 sm:gap-6 md:gap-8 lg:gap-10 justify-items-center">
+              {categories.map((category) => (
+                <div key={category.id} className="w-full">
+                  <CategoryCard {...category} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="mt-20 px-4 sm:px-6 lg:px-8">
         <SearchFilter />

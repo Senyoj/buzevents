@@ -1,8 +1,7 @@
-// src/components/CategoryCard.tsx
 import { useNavigate } from "react-router-dom";
 import { Category } from "../categories-data";
 
-const CategoryCard = ({ id, title, image,  }: Category) => {
+const CategoryCard = ({ id, title, image }: Category) => {
   const navigate = useNavigate();
 
   const handleClick = () => {

@@ -6,6 +6,8 @@ import Index from "../pages/Dashboard/Index";
 import CategoryPage from "../pages/categories/CategoryPage";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
+import PopularLocationsCarousel from "../pages/homepage/components/PopularLocationsCarousel";
+import LocationDetails from "../pages/events/LocationDetails";
 
 const AppRouter = () => {
   return (
@@ -34,6 +36,8 @@ const AppRouter = () => {
             // </ProtectedRoute>
           }
         />
+        <Route path="/" element={<PopularLocationsCarousel />} />
+        <Route path="/location/:id" element={<LocationDetails />} />
       </Routes>
     </Router>
   );

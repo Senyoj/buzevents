@@ -8,6 +8,7 @@ import SearchFilter from "../../components/SearchFilter";
 import SearchPage from "./components/SearchPage";
 import CategoryCard from "../categories/components/CategoryCard";
 import { categories } from "../categories/categories-data";
+import PopularLocationsCarousel from "./components/PopularLocationsCarousel";
 
 const interests = [
   "Comedy",
@@ -28,7 +29,7 @@ const interests = [
   "Mental Health",
   "TV",
   "Musical",
-] as const;
+];
 
 const ITEMS_PER_PAGE = 4;
 
@@ -155,6 +156,10 @@ const Home = () => {
             />
           </div>
         </div>
+      </section>
+
+      <section className="mt-20 px-4 sm:px-6 lg:px-8">
+        <PopularLocationsCarousel />
       </section>
     </PageLayout>
   );
